@@ -1,0 +1,43 @@
+[project]
+name = "takehome"
+version = "0.1.0"
+description = "Reproducible machine learning experiments for black-box function approximation"
+readme = "README.md"
+authors = [
+    { name = "Ankit Kumar", email = "ankitkr8540@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "joblib>=1.6.0",
+    "matplotlib>=3.11.2",
+    "mlflow>=3.17.1",
+    # MLflow uses lazy="noload", deprecated in SQLAlchemy 2.1.
+    "sqlalchemy>=2.0,<2.1",
+    "numpy>=2.4.6",
+    "pandas>=3.0.6",
+    "pyyaml>=6.0.3",
+    "scikit-learn>=1.9.1",
+    "scipy>=1.17.1",
+    "torch>=2.14.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.4,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "function_approximation"
+module-root = ""
+
+[dependency-groups]
+ui = [
+    "streamlit>=1.50,<2",
+]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+]
+docs = [
+    "myst-parser>=4,<5",
+    "sphinx>=8.2,<9",
+]
